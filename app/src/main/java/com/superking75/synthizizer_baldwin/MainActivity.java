@@ -63,30 +63,14 @@ public class MainActivity extends AppCompatActivity {
         notePicker.setDisplayedValues(noteValues);
         notePicker.setWrapSelectorWheel(true);
 
-       // mpE = MediaPlayer.create(this, R.raw.scalee);
-        //mpF = MediaPlayer.create(this, R.raw.scalef);
-
-        /*mpA= MediaPlayer.create(this, R.raw.scalea);
-          mpB= MediaPlayer.create(this, R.raw.scaleb);
-          mpBb= MediaPlayer.create(this, R.raw.scalebb);
-          mpC=MediaPlayer.create(this, R.raw.scalec);
-          mpCs=MediaPlayer.create(this, R.raw.scalecs);
-          mpD= MediaPlayer.create(this, R.raw.scaled);
-          mpDs= MediaPlayer.create(this, R.raw.scaleds);
-          mpE= MediaPlayer.create(this, R.raw.scalee);
-          mpF= MediaPlayer.create(this, R.raw.scalef);
-          mpFs= MediaPlayer.create(this, R.raw.scalefs);
-          mpG= MediaPlayer.create(this, R.raw.scaleg);
-          mpGs= MediaPlayer.create(this, R.raw.scalegs);
-          mpHighE= MediaPlayer.create(this, R.raw.scalehighe);
-          mpHighF= MediaPlayer.create(this, R.raw.scalehighf);
-         mpHighFs= MediaPlayer.create(this, R.raw.scalehighfs);
-          mpHighG= MediaPlayer.create(this, R.raw.scalehighg);*/
         final MediaPlayer[] noteList ={mpA, mpB, mpBb, mpC, mpCs, mpD, mpDs, mpE, mpF, mpFs,mpG, mpGs, mpHighE, mpHighFs, mpHighG};
         final int[] allNoteId = {R.raw.scalea,R.raw.scaleb,R.raw.scalebb,R.raw.scalec,R.raw.scalecs,R.raw.scaled,R.raw.scaleds,R.raw.scalee,R.raw.scalef,R.raw.scalefs,R.raw.scaleg,R.raw.scalegs,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighg};
         final int[] noteIdListE = {R.raw.scalee,R.raw.scalefs,R.raw.scalegs,R.raw.scalea,R.raw.scaleb,R.raw.scalecs,R.raw.scaleds,R.raw.scalehighe};
-        //A, A, High E, High E, High F Sharp, High F Sharp, High E, D, D, C Sharp, C Sharp, B, B, A
-        final int[] twinkleList = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scaled,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
+        //High E, High E, D, D, C Sharp, C Sharp, B
+        final int[] twinkleList = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea,
+                R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb, R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,
+                R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
+        final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500};
 
         mpt = new MediaPlayerThread(MainActivity.this);
 
@@ -162,11 +146,14 @@ public class MainActivity extends AppCompatActivity {
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
+
             public void onClick(View v) {
+                int stepper = 0;
                 for (int n: twinkleList)
                 {
 
-                    mpt.playNote(n, 1000);
+                    mpt.playNote(n, twinkleTimes[stepper]);
+                    stepper++;
 
                 }
 
