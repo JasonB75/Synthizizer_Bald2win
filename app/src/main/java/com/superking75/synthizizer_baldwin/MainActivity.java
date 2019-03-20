@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer mpHighF;
     private MediaPlayer mpHighFs;
     private MediaPlayer mpHighG;
+    private MediaPlayerThread mpt;
     int noteNoteNumber = 1;
     int notepicked = 0;
     @Override
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
        // mpE = MediaPlayer.create(this, R.raw.scalee);
         //mpF = MediaPlayer.create(this, R.raw.scalef);
 
-        mpA= MediaPlayer.create(this, R.raw.scalea);
+        /*mpA= MediaPlayer.create(this, R.raw.scalea);
           mpB= MediaPlayer.create(this, R.raw.scaleb);
           mpBb= MediaPlayer.create(this, R.raw.scalebb);
           mpC=MediaPlayer.create(this, R.raw.scalec);
@@ -78,10 +79,16 @@ public class MainActivity extends AppCompatActivity {
           mpHighE= MediaPlayer.create(this, R.raw.scalehighe);
           mpHighF= MediaPlayer.create(this, R.raw.scalehighf);
          mpHighFs= MediaPlayer.create(this, R.raw.scalehighfs);
-          mpHighG= MediaPlayer.create(this, R.raw.scalehighg);
+          mpHighG= MediaPlayer.create(this, R.raw.scalehighg);*/
         final MediaPlayer[] noteList ={mpA, mpB, mpBb, mpC, mpCs, mpD, mpDs, mpE, mpF, mpFs,mpG, mpGs, mpHighE, mpHighFs, mpHighG};
-        final String[] noteIdList = {"a", "b","bb","c", "cs", "d", "ds", "e", "f", "fs", "g","gs", "highe", "highfs", "highg"};
-        final MediaPlayer[] twinkleArray = {mpA, mpB};
+        final int[] allNoteId = {R.raw.scalea,R.raw.scaleb,R.raw.scalebb,R.raw.scalec,R.raw.scalecs,R.raw.scaled,R.raw.scaleds,R.raw.scalee,R.raw.scalef,R.raw.scalefs,R.raw.scaleg,R.raw.scalegs,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighg};
+
+        final int[] noteIdListE = {R.raw.scalee,R.raw.scalefs,R.raw.scalegs,R.raw.scalea,R.raw.scaleb,R.raw.scalecs,R.raw.scaleds,R.raw.scalehighe};
+        mpt = new MediaPlayerThread(MainActivity.this);
+
+        //fi
+        // nal MediaPlayer[] twinkleArray = {mpA, mpB};
+
 
         noteNumber.setMinValue(1);
         noteNumber.setMaxValue(10);
@@ -117,14 +124,13 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int stepper = 0;
+                //int stepper = 0;
 
                 Log.e(  TAG, "Button 2 clicked");
-                while (stepper < noteList.length-1)
+               for (int n: noteIdListE)
                 {
-                    MediaPlayerThreadShort mpt = new MediaPlayerThreadShort(MainActivity.this, noteList[stepper], 1000);
-                    mpt.run();
-                    stepper++;
+
+                    mpt.playNote(n, 1000);
 
                 }
 
@@ -135,13 +141,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int stepper = 0;
-                //MediaPlayer[] noteList ={mpA, mpB, mpBb, mpC, mpCs, mpD, mpDs, mpE, mpF, mpFs,mpG, mpGs, mpHighE, mpHighFs, mpHighG};
+
 
                 while (stepper < noteNoteNumber)
                 {
-                    noteList[notepicked].seekTo(0);
-                    noteList[notepicked].start();
-                    delayPlaying(WHOLE_NOTE);
+                    mpt.playNote(allNoteId[notepicked], 1000);
+                   // noteList[notepicked].seekTo(0);
+                    //noteList[notepicked].start();
+                   // delayPlaying(WHOLE_NOTE);
                   //  temp[notepicked].stop();
                     stepper++;
 

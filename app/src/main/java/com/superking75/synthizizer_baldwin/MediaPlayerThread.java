@@ -9,10 +9,14 @@ public class MediaPlayerThread implements Runnable {
     int id;
     int delay;
 
-    public MediaPlayerThread(Context context, int id, int delay){
+    public MediaPlayerThread(Context context){
         this.context = context;
+    }
+
+    public void playNote(int id, int delay){
         this.id = id;
         this.delay = delay;
+        this.run();
     }
     @Override
     public void run() {
