@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
          mpHighFs= MediaPlayer.create(this, R.raw.scalehighfs);
           mpHighG= MediaPlayer.create(this, R.raw.scalehighg);
         final MediaPlayer[] noteList ={mpA, mpB, mpBb, mpC, mpCs, mpD, mpDs, mpE, mpF, mpFs,mpG, mpGs, mpHighE, mpHighFs, mpHighG};
+        final String[] noteIdList = {"a", "b","bb","c", "cs", "d", "ds", "e", "f", "fs", "g","gs", "highe", "highfs", "highg"};
         final MediaPlayer[] twinkleArray = {mpA, mpB};
 
         noteNumber.setMinValue(1);
@@ -121,10 +122,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(  TAG, "Button 2 clicked");
                 while (stepper < noteList.length-1)
                 {
-                    noteList[stepper].seekTo(0);
-                    noteList[stepper].start();
-                    delayPlaying(WHOLE_NOTE);
-                    //  temp[notepicked].stop();
+                    MediaPlayerThreadShort mpt = new MediaPlayerThreadShort(MainActivity.this, noteList[stepper], 1000);
+                    mpt.run();
                     stepper++;
 
                 }
