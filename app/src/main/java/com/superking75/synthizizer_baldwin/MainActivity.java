@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button3;
     private NumberPicker noteNumber;
     private NumberPicker notePicker;
+    private NumberPicker twinkletimes;
 
     private MediaPlayer mpA;
     private MediaPlayer mpB;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayerThread mpt;
     int noteNoteNumber = 1;
     int notepicked = 0;
+    int twinkleLineTwo = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,10 @@ public class MainActivity extends AppCompatActivity {
         final TextView main = (TextView) findViewById(R.id.text1);
         noteNumber = (NumberPicker) findViewById(R.id.np);
         notePicker = (NumberPicker) findViewById(R.id.note);
+        twinkletimes = (NumberPicker)findViewById(R.id.twinkle);
+        twinkletimes.setMinValue(1);
+        twinkletimes.setMaxValue(5);
+        twinkletimes.setWrapSelectorWheel(true);
         final String[] noteValues = {"a", "b", "Bb", "C", "C#", "d", "d#", "e", "f", "f#", "g", "g#", "High E", "High F#", "High G"};
         notePicker.setMinValue(0);
         notePicker.setMaxValue(noteValues.length-1);
@@ -67,10 +73,10 @@ public class MainActivity extends AppCompatActivity {
         final int[] allNoteId = {R.raw.scalea,R.raw.scaleb,R.raw.scalebb,R.raw.scalec,R.raw.scalecs,R.raw.scaled,R.raw.scaleds,R.raw.scalee,R.raw.scalef,R.raw.scalefs,R.raw.scaleg,R.raw.scalegs,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighg};
         final int[] noteIdListE = {R.raw.scalee,R.raw.scalefs,R.raw.scalegs,R.raw.scalea,R.raw.scaleb,R.raw.scalecs,R.raw.scaleds,R.raw.scalehighe};
         //High E, High E, D, D, C Sharp, C Sharp, B
-        final int[] twinkleList = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea,
-                R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb, R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,
-                R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
-        final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500,750,750,750,750,750,750,1500};
+        final int[] twinkleList1 = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
+        final int[] twinkleList2 = {R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb, R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,};
+        final int[] twinkleTimes2 = {750,750,750,750,750,750,1500};
+        final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750,750,750,1500};
 
         mpt = new MediaPlayerThread(MainActivity.this);
 
@@ -82,11 +88,20 @@ public class MainActivity extends AppCompatActivity {
         noteNumber.setMaxValue(10);
         noteNumber.setWrapSelectorWheel(true);
 
+
         noteNumber.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal){
                 //Display the newly selected number from picker
                 noteNoteNumber = newVal;
+                //main.setText(newVal);
+            }
+        });
+        twinkletimes.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal){
+                //Display the newly selected number from picker
+                twinkleLineTwo = newVal;
                 //main.setText(newVal);
             }
         });
@@ -149,13 +164,33 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 int stepper = 0;
-                for (int n: twinkleList)
+                for (int n: twinkleList1)
                 {
 
                     mpt.playNote(n, twinkleTimes[stepper]);
                     stepper++;
 
                 }
+
+                stepper=0;
+                //for(int i = 0; i< twinkleLineTwo;i++)
+                //{
+                    for (int n : twinkleList2) {
+
+                        mpt.playNote(n, twinkleTimes2[stepper]);
+                        stepper++;
+
+                    }
+             //   }
+               stepper = 0;
+                for (int n: twinkleList1)
+                {
+
+                    mpt.playNote(n, twinkleTimes[stepper]);
+                    stepper++;
+
+                }
+
 
             }
         });
