@@ -82,8 +82,10 @@ public class MainActivity extends AppCompatActivity {
           mpHighG= MediaPlayer.create(this, R.raw.scalehighg);*/
         final MediaPlayer[] noteList ={mpA, mpB, mpBb, mpC, mpCs, mpD, mpDs, mpE, mpF, mpFs,mpG, mpGs, mpHighE, mpHighFs, mpHighG};
         final int[] allNoteId = {R.raw.scalea,R.raw.scaleb,R.raw.scalebb,R.raw.scalec,R.raw.scalecs,R.raw.scaled,R.raw.scaleds,R.raw.scalee,R.raw.scalef,R.raw.scalefs,R.raw.scaleg,R.raw.scalegs,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighg};
-
         final int[] noteIdListE = {R.raw.scalee,R.raw.scalefs,R.raw.scalegs,R.raw.scalea,R.raw.scaleb,R.raw.scalecs,R.raw.scaleds,R.raw.scalehighe};
+        //A, A, High E, High E, High F Sharp, High F Sharp, High E, D, D, C Sharp, C Sharp, B, B, A
+        final int[] twinkleList = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scaled,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
+
         mpt = new MediaPlayerThread(MainActivity.this);
 
         //fi
