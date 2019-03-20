@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button1;
     private Button button2;
     private Button noteNumberButton;
+    private Button button3;
     private NumberPicker noteNumber;
     private NumberPicker notePicker;
 
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         button1 = (Button)findViewById(R.id.button1);
         button2 = (Button)findViewById(R.id.button2);
         noteNumberButton = (Button)findViewById(R.id.noteNumberButton);
+        button3= (Button)findViewById(R.id.button3);
         final TextView main = (TextView) findViewById(R.id.text1);
         noteNumber = (NumberPicker) findViewById(R.id.np);
         notePicker = (NumberPicker) findViewById(R.id.note);
@@ -153,6 +155,18 @@ public class MainActivity extends AppCompatActivity {
                    // delayPlaying(WHOLE_NOTE);
                   //  temp[notepicked].stop();
                     stepper++;
+
+                }
+
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int n: twinkleList)
+                {
+
+                    mpt.playNote(n, 1000);
 
                 }
 
