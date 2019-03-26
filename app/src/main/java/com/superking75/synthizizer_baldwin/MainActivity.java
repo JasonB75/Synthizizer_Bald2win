@@ -1,5 +1,7 @@
 package com.superking75.synthizizer_baldwin;
 
+//https://abhiandroid.com/ui/switch
+
 import android.media.MediaPlayer;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker notePicker;
     private NumberPicker twinkletimes;
     private  Button button5;
+
+    private Switch switch1;
 
     private MediaPlayer mpA;
     private MediaPlayer mpB;
@@ -81,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         final int[] twinkleList1 = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
         final int[] twinkleList2 = {R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb};
         final int[] twinkleTimes2 = {750,750,750,750,750,750,1500};
-        final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750,750,750,1500};
+        final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750 ,750,750,1500};
 
         final int[] bitesDust = {R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalea,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalea,
                 R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleb,R.raw.scaleb,R.raw.scalea,R.raw.scaleb,R.raw.scalea};
