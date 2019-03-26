@@ -16,8 +16,11 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getName();
 
-    private final int WHOLE_NOTE = 2000;
+    private final int WHOLE_NOTE = 4000;
     private final int HALF_NOTE = WHOLE_NOTE/2;
+    private final int QUARTER_NOTE = WHOLE_NOTE/4;
+    private final int EIGHT_NOTE = WHOLE_NOTE/8;
+    private final int SIXTEEN_NOTE  = WHOLE_NOTE/16;
 
     private Button button1;
     private Button button2;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private NumberPicker noteNumber;
     private NumberPicker notePicker;
     private NumberPicker twinkletimes;
+    private  Button button5;
 
     private MediaPlayer mpA;
     private MediaPlayer mpB;
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         button2 = (Button)findViewById(R.id.button2);
         noteNumberButton = (Button)findViewById(R.id.noteNumberButton);
         button3= (Button)findViewById(R.id.button3);
+        button5= (Button) findViewById(R.id.button5);
         final TextView main = (TextView) findViewById(R.id.text1);
         noteNumber = (NumberPicker) findViewById(R.id.np);
         notePicker = (NumberPicker) findViewById(R.id.note);
@@ -74,9 +79,19 @@ public class MainActivity extends AppCompatActivity {
         final int[] noteIdListE = {R.raw.scalee,R.raw.scalefs,R.raw.scalegs,R.raw.scalea,R.raw.scaleb,R.raw.scalecs,R.raw.scaleds,R.raw.scalehighe};
         //High E, High E, D, D, C Sharp, C Sharp, B
         final int[] twinkleList1 = {R.raw.scalea, R.raw.scalea, R.raw.scalehighe,R.raw.scalehighe,R.raw.scalehighfs,R.raw.scalehighfs,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,R.raw.scaleb,R.raw.scalea};
-        final int[] twinkleList2 = {R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb, R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb,};
+        final int[] twinkleList2 = {R.raw.scalehighe,R.raw.scalehighe,R.raw.scaled,R.raw.scaled,R.raw.scalecs,R.raw.scalecs,R.raw.scaleb};
         final int[] twinkleTimes2 = {750,750,750,750,750,750,1500};
         final int[] twinkleTimes = {750,750,750,750,750,750,1500,750,750,750,750,750,750,1500};
+
+        final int[] bitesDust = {R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalea,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalea,
+                R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleg,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scalee,R.raw.scaleb,R.raw.scaleb,R.raw.scalea,R.raw.scaleb,R.raw.scalea};
+        final int[] bitesNums = {QUARTER_NOTE,QUARTER_NOTE,QUARTER_NOTE,SIXTEEN_NOTE,EIGHT_NOTE,EIGHT_NOTE,EIGHT_NOTE,EIGHT_NOTE,SIXTEEN_NOTE+QUARTER_NOTE,
+                QUARTER_NOTE,QUARTER_NOTE,QUARTER_NOTE,SIXTEEN_NOTE,EIGHT_NOTE,EIGHT_NOTE,EIGHT_NOTE,EIGHT_NOTE,SIXTEEN_NOTE+QUARTER_NOTE,
+                EIGHT_NOTE,EIGHT_NOTE,SIXTEEN_NOTE,SIXTEEN_NOTE,SIXTEEN_NOTE,SIXTEEN_NOTE+EIGHT_NOTE,EIGHT_NOTE,EIGHT_NOTE,SIXTEEN_NOTE,SIXTEEN_NOTE,
+                EIGHT_NOTE,EIGHT_NOTE,SIXTEEN_NOTE,EIGHT_NOTE,SIXTEEN_NOTE+QUARTER_NOTE,
+
+        };
+
 
         mpt = new MediaPlayerThread(MainActivity.this);
 
@@ -194,9 +209,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+button5.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        int stepper = 0;
+        for (int n: bitesDust)
+        {
+
+            mpt.playNote(n, bitesNums[stepper]);
+            stepper++;
+
+        }
 
 
     }
+});
+
+    }
+
+
+
+
+
     private void delayPlaying(int delay) {
         try {
             Thread.sleep(delay);
