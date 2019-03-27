@@ -1,12 +1,14 @@
 <resources>
     <string name="app_name">Synthizizer_Baldwin</string>
-    <string name="button2">E_scale</string>
+    <string name="button2">Play E scale</string>
     <string name="button1">Play E</string>
-    <string name="button3">Twinkle Little Star 1</string>
-    <string name="button4">Play these notes</string>
-    <string name="button5">Bites the dust </string>
+    <string name="button3">Twinkle Little Star </string>
+    <string name="button4">Play the selected notes</string>
+    <string name="button5">Another one bites the dust </string>
     <string name="switch1">2nd Line?? </string>
-
+    <string name="pick_a_note">Pick a note</string>
+    <string name="how_many_times">How many times</string>
+    <string name="number_of_times_2nd_line_plays">Number of times 2nd line plays</string>
 
 
 </resources>

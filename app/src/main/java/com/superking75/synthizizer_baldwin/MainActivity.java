@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         noteNumberButton = (Button)findViewById(R.id.noteNumberButton);
         button3= (Button)findViewById(R.id.button3);
         button5= (Button) findViewById(R.id.button5);
-        final TextView main = (TextView) findViewById(R.id.text1);
+        //final TextView main = (TextView) findViewById(R.id.text1);
         noteNumber = (NumberPicker) findViewById(R.id.noteNumber);
         notePicker = (NumberPicker) findViewById(R.id.notePicker);
         twinkletimes = (NumberPicker)findViewById(R.id.twinkleTimePicker);
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                for (int n: noteIdListE)
                 {
 
-                    mpt.playNote(n, 1000);
+                    mpt.playNote(n, HALF_NOTE);
 
                 }
 
