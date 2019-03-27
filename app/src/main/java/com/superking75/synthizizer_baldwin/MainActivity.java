@@ -2,6 +2,14 @@ package com.superking75.synthizizer_baldwin;
 
 //https://abhiandroid.com/ui/switch
 
+/**
+ * ALL CHALLENGES HAVE BEEN COMPETED.
+ *
+ *
+ *
+ *
+ */
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -161,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * Plays the E scale when pressed
+         * Challenge 1, 3
          */
         eScaleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -180,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * References the value from 'notePicked' to the index of all avaliable notes while running through a loop. Said loop runs for the number of times specifed by 'timesNotePlayed'
+         * Challenge 2, 4,
          */
         noteNumberButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * Plays Twinkle Twinkle Little Star. It does this with for each loops for each line of the songs, here it uses the note with it's delay to call the playNote method.
-         *
+         * challenge 5, 6, 7, 8, 9, 10, 11
          */
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -240,7 +250,8 @@ public class MainActivity extends AppCompatActivity {
 
         /**
          * When clicked this plays a section of another one bites the dust by running through each element of the
-         * array containing the note id's and the cosoponding note times. It put's these into the playNote method to play them
+         * array containing the note id's and the corresponding note times. It put's these into the playNote method to play them
+         * challenge 12
          */
         button5.setOnClickListener(new View.OnClickListener() {
     @Override
