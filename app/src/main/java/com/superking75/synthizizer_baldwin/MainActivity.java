@@ -19,12 +19,19 @@ import org.w3c.dom.Text;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getName();
 
+
+    /**
+     * Creates the length of all the notes that will be used later in the program.
+     */
     private final int WHOLE_NOTE = 4000;
     private final int HALF_NOTE = WHOLE_NOTE/2;
     private final int QUARTER_NOTE = WHOLE_NOTE/4;
     private final int EIGHT_NOTE = WHOLE_NOTE/8;
     private final int SIXTEEN_NOTE  = WHOLE_NOTE/16;
 
+    /**
+     * Creates the instances of all the variables and buttons that will be put into effect later on in the program
+     */
     private Button button1;
     private Button button2;
     private Button noteNumberButton;
