@@ -40,36 +40,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/np" />
+        app:layout_constraintTop_toBottomOf="@+id/noteNumber" />
 
     <NumberPicker
-        android:id="@+id/np"
+        android:id="@+id/noteNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="88dp"
-        app:layout_constraintLeft_toRightOf="@id/note"
+        app:layout_constraintLeft_toRightOf="@id/notePicker"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button2" />
 
     <NumberPicker
-        android:id="@+id/twinkle"
+        android:id="@+id/twinkleTimePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toRightOf="@id/note"
+        app:layout_constraintLeft_toRightOf="@id/notePicker"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
     <NumberPicker
-        android:id="@+id/note"
-        android:layout_width="wrap_content"
+        android:id="@+id/notePicker"
+        android:layout_width="67dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintRight_toLeftOf="@id/np"
-        app:layout_constraintEnd_toStartOf="@+id/np"
+        app:layout_constraintEnd_toStartOf="@+id/noteNumber"
         app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintRight_toLeftOf="@id/noteNumber"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button2" />
 
@@ -95,7 +95,7 @@
         android:text="@string/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/twinkle" />
+        app:layout_constraintTop_toBottomOf="@+id/twinkleTimePicker" />
 
     <Switch
         android:id="@+id/switch1"
@@ -105,7 +105,7 @@
         android:layout_marginEnd="8dp"
         android:text="@string/switch1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/twinkle"
+        app:layout_constraintStart_toEndOf="@+id/twinkleTimePicker"
         tools:layout_editor_absoluteY="477dp" />
 
 </android.support.constraint.ConstraintLayout>
